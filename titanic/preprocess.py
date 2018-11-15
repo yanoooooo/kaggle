@@ -1,7 +1,7 @@
 # ./dataにtrain.csvがあること
 import pandas as pd
 
-data = pd.read_csv('./data/train.csv')
+data = pd.read_csv('./data/test.csv')
 
 # nan check
 print('** before preprocess **')
@@ -23,11 +23,11 @@ median = data['Age'].median()
 data['Age'] = data['Age'].fillna(median)
 
 # delete null row
-data = data.dropna()
+# data = data.dropna()
 
 print('** after preprocess **')
 print(data.isnull().any(axis=0))
 print('data size: %d' % len(data))
 print(data.head())
 
-data.to_csv('./data/treated_train.csv', index=False)
+data.to_csv('./data/treated_test.csv', index=False)
